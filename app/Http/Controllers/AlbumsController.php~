@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Album;
-use Image;
 
 class AlbumsController extends Controller
 {
@@ -40,17 +39,6 @@ class AlbumsController extends Controller
 		 	'name' => $request->name,
 		    	'intro' => $request->intro,
 		]);
-		
-		//??????????????
-        if($request->hasFile('cover')){
-            //?????????????
-            $cover_path = "img/covers/" . time() . ".jpg";
-            Image::make($request->cover)->resize(355, 200)->save(public_path($cover_path));
-            //??????
-            $album->update([
-                'cover' => "/" . $cover_path,
-            ]);
-        }
 
         //??????????????
         //...
