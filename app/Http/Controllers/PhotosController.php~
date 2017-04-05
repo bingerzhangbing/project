@@ -34,6 +34,7 @@ class PhotosController extends Controller
 		    'intro' => $request->intro,
 		    'src' => "/" . $src,
 		]);
+		dd($photo);
 		//??
 		session()->flash('success', 'Upload Successful');
 		return back();
