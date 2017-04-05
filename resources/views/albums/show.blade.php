@@ -128,6 +128,22 @@
 
 
 <!-- ???? -->
+<hr>
+<div class="row masonry">
+	@each('shared.photo',$photos,'photo')
+</div>
+{!! $photos->render() !!}
+@endsection
 
-
+@section('script')
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+<!--???-->
+<script>
+$('.masonry').imagesLoaded(function() {
+    $('.masonry').masonry({
+    itemSelector: '.item'
+    });
+});
+</script>
 @endsection

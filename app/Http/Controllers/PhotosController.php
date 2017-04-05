@@ -37,6 +37,32 @@ class PhotosController extends Controller
 		//??
 		session()->flash('success', 'Upload Successful');
 		return back();
-	}
+	}//??????
+    public function update(Request $request, $id)
+    {
+	//??
+	$photo = Photo::findOrFail($id);
+	$photo->update([
+	    'name' => $request->name,
+	    'intro' => $request->intro,
+	]);
 
+	//??
+	session()->flash('success', 'Edit Successful');
+	return back();
+    }
+
+    //????
+    public function destroy($id)
+    {
+	//??
+	$photo = Photo::findOrFail($id);
+	$photo->delete();
+
+	//??
+	session()->flash('success', 'Delete Successful');
+	return back();
+    }
+	
+	
 }
